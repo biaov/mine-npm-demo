@@ -11,11 +11,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Build
+        run: echo ${{ github.sha }} > Release.md
+      - name: test
+        run: cat Release.md
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: v0.0.2
-          release_name: v0.0.2
           body_path: ./Release.md
           files: |
-            ./Release.md
+            Release.md
+            LICENSE
