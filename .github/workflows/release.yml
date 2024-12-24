@@ -18,7 +18,7 @@ jobs:
 
           echo "RELEASE_BODY<<EOF" >> $GITHUB_ENV
 
-          echo -e "`$TODAY`\n" >> $GITHUB_ENV
+          echo "`$TODAY`\n" >> $GITHUB_ENV
 
           cat Release.md >> $GITHUB_ENV
 
