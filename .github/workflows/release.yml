@@ -12,10 +12,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Release
         uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
+        body: |
+          新版本发布了！请查看 [变更日志](CHANGELOG.md) 以获取更多信息。
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
