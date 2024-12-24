@@ -18,4 +18,4 @@ jobs:
           release_name: v0.0.2
           body_path: ./Release.md
           files: |
-          ./Release.md
+            ./Release.md
