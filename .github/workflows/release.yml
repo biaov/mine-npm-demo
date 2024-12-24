@@ -1,4 +1,4 @@
-name: 发布日志
+name: Release Logs
 
 on:
   push:
