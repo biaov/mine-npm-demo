@@ -1,6 +1,9 @@
 name: Main
 
-on: push
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
@@ -8,10 +11,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Generate Changelog
-        run: echo "# Good things have arrived" > ${{ github.workspace }}-Release.txt
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: v0.0.2
-          body_path: ${{ github.workspace }}-Release.txt
+          release_name: v0.0.2
+          body_path: ./Release.md
+          files: |
+          ./Release.md
