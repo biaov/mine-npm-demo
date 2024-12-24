@@ -32,5 +32,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           body: ${{ env.RELEASE_BODY }}
+          files: |
+            .log
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
