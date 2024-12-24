@@ -11,7 +11,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Read Release.md
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Read RELEASE.md
         id: read_release
         run: |
           TODAY=$(date '+%Y-%m-%d')
@@ -20,13 +23,13 @@ jobs:
 
           echo  -e "\`$TODAY\`\n" >> $GITHUB_ENV
 
-          cat Release.md >> $GITHUB_ENV
+          cat RELEASE.md >> $GITHUB_ENV
 
           echo "EOF" >> $GITHUB_ENV
-
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Release
         uses: softprops/action-gh-release@v2
-        if: startsWith(github.ref, 'refs/tags/')
         with:
           body: ${{ env.RELEASE_BODY }}
         env:
