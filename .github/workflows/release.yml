@@ -14,15 +14,18 @@ jobs:
       - name: Read Release.md
         id: read_release
         run: |
+          # 获取今天的日期
+          TODAY=$(date '+%Y-%m-%d')
+
+          # 读取 Release.md 文件内容
           echo "RELEASE_BODY<<EOF" >> $GITHUB_ENV
           cat Release.md >> $GITHUB_ENV
-          echo -e "\n## 新版本发布！\n请查看 [变更日志](CHANGELOG.md) 以获取更多信息。" >> $GITHUB_ENV
+
+          # 拼接今天的日期
+          echo -e "\n## 发布日期: $TODAY\n" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: v0.0.2
           body: ${{ env.RELEASE_BODY }}
-          files: |
-            Release.md
-            LICENSE
