@@ -1,4 +1,4 @@
-name: Main
+name: Release Log
 
 on:
   push:
@@ -14,20 +14,20 @@ jobs:
       - name: Read Release.md
         id: read_release
         run: |
-          # 获取今天的日期
           TODAY=$(date '+%Y-%m-%d')
 
-          # 读取 Release.md 文件内容
           echo "RELEASE_BODY<<EOF" >> $GITHUB_ENV
+
+          echo -e "`$TODAY`\n" >> $GITHUB_ENV
+
           cat Release.md >> $GITHUB_ENV
 
-          # 拼接今天的日期
-          echo -e "\n## 发布日期: $TODAY\n" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
+
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: v0.0.2
           body: ${{ env.RELEASE_BODY }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # 使用 GitHub 提供的 Token
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
