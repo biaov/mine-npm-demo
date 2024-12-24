@@ -1,13 +1,9 @@
-name: Release Logs
+name: Main
 
-on:
-  push:
-    branches:
-      - main
+on: push
 
 jobs:
-  create-release:
-    permissions: write-all
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -23,5 +19,3 @@ jobs:
           files: |
             Release.txt
             LICENSE
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
