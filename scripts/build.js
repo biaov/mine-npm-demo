@@ -3,7 +3,8 @@ import { resolve } from 'path'
 
 const rootDir = resolve(import.meta.dirname, '../')
 !existsSync('dist') && mkdirSync('dist')
-;['package.json', 'README.md', 'LICENSE', 'index.js'].forEach(name => {
+const files = ['package.json', 'README.md', 'LICENSE', 'index.js']
+files.forEach(name => {
   cpSync(resolve(rootDir, name), resolve(rootDir, 'dist', name))
 })
 
