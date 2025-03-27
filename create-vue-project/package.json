@@ -1,16 +1,20 @@
 {
-  "name": "mine-npm-demo",
-  "version": "1.1.7",
-  "description": "This is a sample demo about npm",
-  "main": "index.js",
+  "name": "create-vue-project",
+  "version": "1.2.3",
+  "description": "创建 vue 项目",
+  "main": "./create-vue-project.js",
   "private": false,
+  "bin": {
+    "create-vue-project": "./create-vue-project.js"
+  },
   "scripts": {
-    "build": "node scripts/build",
-    "tag": "node scripts/tag"
+    "start": "node ./create-vue-project.js"
   },
   "keywords": [
     "npm",
-    "demo"
+    "project",
+    "create",
+    "vue"
   ],
   "type": "module",
   "author": {
@@ -28,7 +32,7 @@
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
-    "provenance": true
+    "provenance": false
   },
   "contributors": [
     {
