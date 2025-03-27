@@ -1,9 +1,12 @@
 {
   "name": "mine-npm-demo",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "This is a sample demo about npm",
   "main": "index.js",
   "private": false,
+  "bin": {
+    "create-vue-project": "bin/create-vue-project.js"
+  },
   "scripts": {
     "build": "node scripts/build",
     "tag": "node scripts/tag"
