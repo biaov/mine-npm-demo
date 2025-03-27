@@ -1,6 +1,6 @@
 {
   "name": "mine-npm-demo",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "This is a sample demo about npm",
   "main": "index.js",
   "private": false,
@@ -15,9 +15,6 @@
     "npm",
     "demo"
   ],
-  "engines": {
-    "node": ">=20.12.x"
-  },
   "type": "module",
   "author": {
     "name": "biaov",
