@@ -1,6 +1,6 @@
 {
   "name": "create-vue-project",
-  "version": "1.2.3",
+  "version": "1.2.5",
   "description": "创建 vue 项目",
   "main": "./create-vue-project.js",
   "private": false,
@@ -39,5 +39,8 @@
       "name": "biaov",
       "email": "biaov@qq.com"
     }
-  ]
+  ],
+  "dependencies": {
+    "vue": "^3.5.13"
+  }
 }
